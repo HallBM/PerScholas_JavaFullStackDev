@@ -1,4 +1,4 @@
-## Business Requirments Document for assignment:
+## Business Requirements Document for assignment:
 http://web.cse.ohio-state.edu/~bair.41/616/Project/Example_Document/Req_Doc_Example.html
 
 We will focus on this functionality: 
