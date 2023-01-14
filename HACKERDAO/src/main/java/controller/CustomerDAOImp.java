@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Scanner;
 
 import daointerface.ConnectionDAO;
 import daointerface.ICustomer;
@@ -85,6 +86,24 @@ public class CustomerDAOImp extends ConnectionDAO implements ICustomer {
 		return false;
 	}
 
+	public Customers createNewCustomer() {
+		Scanner scan = new Scanner(System.in);
+		Customers c = new Customers();
+		System.out.println("Enter id of new customer or enter '-1' for auto assignment:");
+		int id = Integer.valueOf(scan.nextLine());
+		if (id !=-1){ 
+			c.setId(id);
+		} 
+		System.out.println("Enter email address of new customer:");
+		c.setEmail(scan.nextLine());
+		System.out.println("Enter first name of new customer:");
+		c.setFname(scan.nextLine());
+		System.out.println("Enter surname of new customer:");
+		c.setLname(scan.nextLine());
+		
+		return c;
+	}
+	
 	public boolean addCustomer(Customers customer) {
 		try {
 			boolean completed = true;

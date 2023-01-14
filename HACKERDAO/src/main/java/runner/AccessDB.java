@@ -55,6 +55,9 @@ public class AccessDB {
 
 		custDAO.addCustomer(new Customers(12, "fs@gmail.com", "f", "Cameron"));
 		custDAO.addCustomer(new Customers("gs@gmail.com", "g", "Strawser"));
+		
+		c = custDAO.createNewCustomer();
+		custDAO.addCustomer(c);
 
 		// retrieve table contents (SELECT)
 		System.out.println("\n====== RETRIEVING CUSTOMERS ====");
