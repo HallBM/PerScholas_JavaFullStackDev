@@ -7,6 +7,7 @@ package com.test.project.CrunchifyJunitTest;
  * Hello world!
  *
  */
+
 public class App 
 {
     public static void main( String[] args )

@@ -28,6 +28,12 @@ public class AppTest
 		a.setlName("Gabriel");
 		
 		//Student b = a;  //why does this return true even without overriding?
+		//In this case, by assigning Student a to Student b, values are passed by reference
+		//so both Student a and Student b point to the exact same object location in memory.
+		//The original equals method tests for this type of identity with non-primitives.
+		//The override method was written to explicitly compare different student objects that
+		// hold the same values for the Student attributes whether they are from the same object or not. 
+		
 		
 		Student b = new Student();
 		b.setId(1);
@@ -37,6 +43,4 @@ public class AppTest
 		
 		assertEquals(a, b);
 	}
-
-
 }
