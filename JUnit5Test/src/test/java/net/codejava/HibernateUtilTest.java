@@ -5,6 +5,7 @@ package net.codejava;
 //
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import java.util.List;
 
@@ -16,10 +17,10 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 
 @TestMethodOrder(OrderAnnotation.class)
 public class HibernateUtilTest {
@@ -74,10 +75,44 @@ public class HibernateUtilTest {
 	public void testUpdate() {
 		System.out.println("Running testUpdate...");
 		
-	//  YOUR CODE HERE!!
+		//  YOUR CODE HERE!!
+		/**
+		 * Test 1 creates product table in database
+		 * Test 2 inserts an entry into the product table (id=1)
+		 * Test 3 attempts to retrieve data from table using non-existent id (returns null)
+		**/
+		Integer id = 1;
 		
-	}
-	
+		// Pull details of entry that needs to be updated
+		Product product = session.find(Product.class, id);
+		String old_name = product.getName();
+		Integer old_id = product.getId();
+		Float old_price = product.getPrice();
+		String new_name = "Google Pixel 7 Pro";
+		
+		// Update product entry
+		product.setName(new_name);
+		
+		// Update database table; commit changes
+		session.beginTransaction();
+		session.update(product);
+		session.getTransaction().commit();
+		
+		// Retrieve new data from database table
+		Product actualproduct = session.find(Product.class, id);
+		
+		// Testing the same thing in two ways: make sure name from database equals new name and not old name
+		assertEquals(new_name, actualproduct.getName());
+	    assertNotEquals(old_name, actualproduct.getName());
+	    
+	    System.out.println("OLD ENTRY: prod_id = " + old_id 
+	      				 + " name = " + old_name 
+	       				 + " price = $" + old_price.intValue() + ".00");
+	    System.out.println("NEW ENTRY: prod_id = " + actualproduct.getId() 
+	    				 + " name = " + actualproduct.getName() 
+       				 	 + " price = $" + (int)actualproduct.getPrice() + ".00");
+	     }	
+		
 	@Test
 	@Order(2)
 	public void testGet() {
