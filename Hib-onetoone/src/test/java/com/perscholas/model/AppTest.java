@@ -1,4 +1,4 @@
-package com.perscholas.Hib_Manytoone;
+package com.perscholas.model;
 
 import static org.junit.Assert.assertEquals;
 
@@ -54,6 +54,33 @@ public class AppTest
     	// GOAL:   Test that a Address Object exists in the database
     	// with city="nyc"   	
     	//=========================
+	   	SessionFactory factory = new Configuration().configure().buildSessionFactory();
+    	Session session = factory.openSession();
+    	
+    	Transaction t = session.beginTransaction();   
+    	
+		String myquery="SELECT * FROM address WHERE city = 'nyc' ";
+	    List<Object[]> details = session.createNativeQuery(myquery).list();
+	         for (Object[] objects : details) {
+
+	        	Integer expectedAddressID = (Integer) objects[0];
+	            String expectedCity = (String) objects[1];
+	            String expectedState = (String) objects[2];
+	            String expectedStreet = (String) objects[3];
+	            Integer expectedZipCode = (Integer) objects[4];
+	            
+	        	Address actualAddress = new Address();
+	            actualAddress.setCity("NYC");
+	            assertEquals(expectedCity.toLowerCase(), actualAddress.getCity().toLowerCase());
+	            System.out.println("Address ID = " + expectedAddressID
+	    	            +"\nCity = " + expectedCity
+	    	            +"\nState = " + expectedState
+	    	            +"\nStreet = " + expectedStreet
+	    	            +"\nZip code = " + expectedZipCode);
+	         }	
+	    
+		session.close();
+		System.out.println("Session Closed");
 	
 	}
 }
