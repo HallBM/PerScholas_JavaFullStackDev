@@ -1,8 +1,15 @@
 package testing;
 
-public class Dog extends Animal implements Example{
-    public String color;
-    public Dog(String name, int age, String color){
+public class Dog extends Animal implements Cloneable{
+    private String color;
+    
+    public String getColor() {
+		return color;
+	}
+	public void setColor(String color) {
+		this.color = color;
+	}
+	public Dog(String name, int age, String color){
        super(name, age);
        this.color = color;
     }
@@ -25,13 +32,27 @@ public class Dog extends Animal implements Example{
     public static void speak() {System.out.println("BARK");}
     
     
-    public static void main(String[] args) {
-       Animal animal = new Dog("Leo", 2, "Black");
-       Dog dog = (Dog) animal; //implicit casting Object of student to person
-       dog.animalInfo();
-       dog.dogInfo();
-       dog.Example.doMoreWork();
+    
+    
+    @Override
+	public String toString() {
+		return this.getName() + this.getAge() + this.getColor();
+	}
+    
+    
+	public static void main(String[] args) throws CloneNotSupportedException{
+       //Animal animal = new Dog("Leo", 2, "Black");
+       //Dog dog = (Dog) animal; //implicit casting Object of student to person
+       //dog.animalInfo();
+       //dog.dogInfo();
       
+    	Dog dog1 = new Dog("Leo",2,"Black");
+    	Dog dog2 = (Dog) dog1.clone();
+    	dog2.setName("Francis");
+    	dog2.setColor("Brown");
+    	    	
+    	System.out.println(dog1);
+    	System.out.println(dog2);
     	
        
     }
