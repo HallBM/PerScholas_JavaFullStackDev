@@ -1,7 +1,5 @@
 package testing;
 
-import java.util.*;
-
 interface DataType<T>{
  void addition(T a, T b);
  void subtraction(T a, T b);
@@ -39,25 +37,25 @@ class StringDataType<T> implements DataType<T>{
     } 
 }
 
-class NumericDataType<T> implements DataType<T>{
+class NumericDataType<T extends Number> implements DataType<T>{
     public void addition(T a, T b){
         System.out.println("Adding two generic instances");
-        System.out.println("The result is: " + (a+b));
+        System.out.println("The result is: " + (a.doubleValue()+b.doubleValue()));
     }
     
     public void subtraction(T a, T b){
         System.out.println("Subtracting two generic instances");
-        //System.out.printf("The result is: %.2f", (a-b));
+        System.out.printf("The result is: %.2f", (a.doubleValue()-b.doubleValue()));
     }
     
     public void multiplication(T a, T b){
         System.out.println("Multiplying two generic instances");
-        //System.out.printf("The result is: %.2f", (a*b));
+        System.out.printf("The result is: %.2f", (a.doubleValue()*b.doubleValue()));
     }
     
     public void division(T a, T b){
         System.out.println("Dividing two generic instances");
-        //System.out.printf("The result is: %.2f", (a/b));
+        System.out.printf("The result is: %.2f", (a.doubleValue()/b.doubleValue()));
     }
     
     void performAll(T a, T b){
