@@ -53,8 +53,6 @@ public class Student {
 	// WHAT You need TODO:  Implement the equals @Override method
 	
 	
-	
-	/*
 	@Override
 	public boolean equals(Object obj) {
 		// TODO Auto-generated method stub
@@ -71,5 +69,5 @@ public class Student {
 				
 		return true;
 	}
-	 */
+	 
 }
