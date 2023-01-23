@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>My Registration Page</title>
+    <style>
+        form {
+            border: 1px solid gray;
+            width: 450px;
+            padding: 10px;
+        }
+
+        div {
+            padding: 10px;
+        }
+
+        h1 {
+            margin: 0px;
+        }
+
+        input {
+            border-color: lightgray;
+            margin: 2px;
+        }
+
+        #submit{
+            margin-top: 10px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <form>
+        <div>
+            <h1>Registration Page</h1>
+            </br>
+            <label for="FName">First Name</label>
+            <input id="FName" type="text" name="FName" placeholder="Enter Your First Name" required />
+            </br>
+            <label for="LName">Last Name</label>
+            <input id="LName" type="text" name="LName" placeholder="Enter Your Last Name" required />
+            </br>
+            <label for="email">Email</label>
+            <input id="email" type="email" name="email" placeholder="Enter Your Email" required />
+            </br>
+            <label for="password">Password</label>
+            <input id="password" type="password" name="password" placeholder="Enter Your Password" required />
+            </br>
+            <label for="confpassword">Confirm Password</label>
+            <input id="confpassword" type="password" name="confpassword" placeholder="Confirm Your Password" required />
+            </br>
+            <label for="gender">Gender</label>
+            <input id="female" type="radio" name="gender" value="Female" required />
+            <label for="female">Female</label>
+            <input id="male" type="radio" name="gender" value="Male" required />
+            <label for="male">Male</label>
+            <input id="nonbinary" type="radio" name="gender" value="Non-binary"required />
+            <label for="nonbinary">Non-binary</label>
+            </br>
+            <label for="dob">Date of Birth</label>
+            <input id="dob" type="date" name="dob" placeholder="mm/dd/yyyy" required />
+            </br>
+            <Label for="habits">Habits</Label>
+            <input id="sports" type="checkbox"  name="sports" value="sports">
+            <label for="habits">You like sports</label>
+            <input id="eat" type="checkbox"  name="eat" value="eat">
+            <label for="habits">You like to eat</label>
+            <input id="sleep" type="checkbox"  name="sleep" value="sleep">
+            <label for="habits">You like to sleep</label>
+            </br>
+            <input id="submit" type="submit" name="submit" value="Register" />
+        </div>
+    </form>
+</body>
+
+</html>
