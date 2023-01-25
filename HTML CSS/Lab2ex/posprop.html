@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+.absolute {
+   width: 100px;
+   height: 200px;
+   left: 150px;
+   background-color: red;
+   position: absolute;
+}
+.relative {
+   width: 100px;
+   height: 200px;
+   background-color: green;
+   position: relative;
+}
+.fixed {
+   width: 100px;
+   height: 200px;
+   left: 150px;
+   background-color: yellow;
+   position: fixed;
+}
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+ </script>
+</head>
+<body>
+   <div class="container"></div>
+   <script>
+       for (var i = 1; i <= 6; i++) {
+if (i === 2) {
+               $(".container").append("<div class='fixed'>" + "Inner Div fix" + i + "</div>");
+            } else if (i === 3) {
+               $(".container").append("<div class='relative', style='background-color:orange;left:300px'>" + "Inner Div rel" + i + "</div>");
+            } else if (i % 2 === 0){
+               $(".container").append("<div class='relative'>" + "Inner Div rel" + i + "</div>");
+            }
+       }
+   </script>
+</body>
+
+</html>
