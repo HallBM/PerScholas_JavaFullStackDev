@@ -1,0 +1,26 @@
+<html>
+<head>
+    <script>
+        function calculate(){
+            let input = document.querySelector("#input").value;
+            input.replace(/\n/g,"").replace(/\s/g,"");
+            let ans = eval(input);
+            document.querySelector("#answer").innerHTML = "Answer: " + ans;
+        }
+    
+    </script>
+
+</head>
+
+<body>
+    <form>
+        <label>Enter string of calculations to be processed:</label><br/>
+        <textarea id = "input" rows="4" cols="50"></textarea><br><br>
+        <button type="button" onclick="calculate()">Calculate</button>
+      </form>
+
+      <p id="answer"></p>
+
+</body>
+
+</html>

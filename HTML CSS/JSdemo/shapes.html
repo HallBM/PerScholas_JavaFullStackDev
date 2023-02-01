@@ -1,0 +1,77 @@
+<html>
+<head>
+    <script>
+        function drawBox(){
+            let w = parseInt(document.querySelector("#width").value);
+            let h = parseInt(document.querySelector("#height").value);
+            let ans = "Input width: " + w + "<br/>";
+            ans += "Input height: " + h + "<br/>";
+            ans += "<br/>" + "Shape:" + "<br/>"
+
+            for (let i = 0; i < h; i++){
+                ans += new Array(w+1).join("*") + "<br/>";  
+            }
+
+            document.querySelector("#answer").innerHTML = ans;
+        }
+        
+        function drawCheck(){
+            let w = parseInt(document.querySelector("#width").value);
+            let h = parseInt(document.querySelector("#height").value);
+            let ans = "Input width: " + w + "<br/>";
+            ans += "Input height: " + h + "<br/>";
+            ans += "<br/>" + "Shape:" + "<br/>"
+
+            for (let i = 0; i < h; i++){
+                if (i%2 == 0){
+                    ans += new Array(w+1).join("* ") + "<br/>";
+                } else{
+                    ans += "&nbsp" + new Array(w).join("* ") + "<br/>";
+                }
+            }
+
+            document.querySelector("#answer").innerHTML = ans;
+        }
+        
+        function drawTrap(){
+            let w = parseInt(document.querySelector("#width").value);
+            let h = parseInt(document.querySelector("#height").value);
+            
+            if (w - 2*h <0){
+                document.querySelector("#answer").innerHTML = "Impossible shape!";
+            } else {
+            
+                let ans = "Input width: " + w + "<br/>";
+                ans += "Input height: " + h + "<br/>";
+                ans += "<br/>" + "Shape:" + "<br/>"
+
+                for (let i = 0; i < h; i++){
+                    ans += new Array(i+1).join("&nbsp") + new Array((w+1)-2*i).join("*") + new Array(i+1).join("&nbsp") + "<br/>";  
+                }
+
+                document.querySelector("#answer").innerHTML = ans;
+            }
+        }
+
+
+    </script>
+
+</head>
+
+<body>
+    <form>
+        <label>Input width: </label>
+        <input type="text" id = "width"></text><br/>
+        <label>Input height: </label>
+        <input type="text" id = "height"></text><br/>
+        <button type="button" onclick="drawBox()">Draw Box</button>
+        <button type="button" onclick="drawCheck()">Draw Checkerboard</button>
+        <button type="button" onclick="drawTrap()">Draw Upside-down Trapezoid</button>
+
+      </form>
+
+      <p id="answer"></p>
+
+</body>
+
+</html>
