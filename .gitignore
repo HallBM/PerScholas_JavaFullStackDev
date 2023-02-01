@@ -1,1 +1,5 @@
 /.metadata/
+JUnit Testing/CrunchifyJunitTest/target/classes/META-INF/maven/com.test.project/CrunchifyJunitTest/pom.properties
+JUnit Testing/JUnit5Test/target/classes/META-INF/maven/net.codejava/JUnit5Test/pom.properties
+JUnit Testing/junitdemo/target/classes/META-INF/maven/com.javacodegeeks/junitdemo/pom.properties
+Hibernate JPA JDBC/Hib-onetoone/target/classes/META-INF/maven/com.perscholas/Hib-onetoone/pom.properties
