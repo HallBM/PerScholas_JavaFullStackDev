@@ -1,0 +1,68 @@
+
+<web-app id="WebApp_ID" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+ 
+<display-name>BeginnersBookDemo</display-name>
+<welcome-file-list>
+<welcome-file>index.html</welcome-file>
+<welcome-file>index.htm</welcome-file>
+<welcome-file>index.jsp</welcome-file>
+<welcome-file>default.html</welcome-file>
+<welcome-file>default.htm</welcome-file>
+<welcome-file>default.jsp</welcome-file>
+<welcome-file>/login.html</welcome-file>
+
+</welcome-file-list>
+
+<servlet>
+<servlet-name>MyHttpServletDemo</servlet-name>
+<servlet-class>MyServletDemo</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>MyHttpServletDemo</servlet-name>
+<url-pattern>/welcome</url-pattern>
+</servlet-mapping>
+
+
+  <servlet>
+    <servlet-name>CreateCookieServlet</servlet-name>
+    <servlet-class>
+           CreateCookieServlet
+    </servlet-class>
+  </servlet>
+ 
+  <servlet-mapping>
+    <servlet-name>CreateCookieServlet</servlet-name>
+    <url-pattern>/CreateCookieServlet</url-pattern>
+  </servlet-mapping>
+ 
+  <servlet>
+    <servlet-name>GetCookieServlet</servlet-name>
+    <servlet-class>
+        GetCookieServlet
+    </servlet-class>
+  </servlet>
+ 
+  <servlet-mapping>
+    <servlet-name>GetCookieServlet</servlet-name>
+    <url-pattern>/GetCookieServlet</url-pattern>
+  </servlet-mapping>
+ 
+  <servlet>
+    <servlet-name>DeleteCookieServlet</servlet-name>
+    <servlet-class>
+        DeleteCookieServlet
+    </servlet-class>
+  </servlet>
+ 
+  <servlet-mapping>
+    <servlet-name>DeleteCookieServlet</servlet-name>
+    <url-pattern>/DeleteCookieServlet</url-pattern>
+  </servlet-mapping>
+ 
+</web-app>
+
+
+

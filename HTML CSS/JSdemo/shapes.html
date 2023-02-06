@@ -48,16 +48,11 @@
                 for (let i = 0; i < h; i++){
                     ans += new Array(i+1).join("&nbsp") + new Array((w+1)-2*i).join("*") + new Array(i+1).join("&nbsp") + "<br/>";  
                 }
-
                 document.querySelector("#answer").innerHTML = ans;
             }
         }
-
-
     </script>
-
 </head>
-
 <body>
     <form>
         <label>Input width: </label>
@@ -67,7 +62,6 @@
         <button type="button" onclick="drawBox()">Draw Box</button>
         <button type="button" onclick="drawCheck()">Draw Checkerboard</button>
         <button type="button" onclick="drawTrap()">Draw Upside-down Trapezoid</button>
-
       </form>
 
       <p id="answer"></p>

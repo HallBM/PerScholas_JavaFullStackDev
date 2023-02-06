@@ -1,0 +1,28 @@
+<html> 
+  <head> </head> 
+  <body> 
+  <p>Click the buttons below</p>
+     <button id="scroll">Scroll</button> 
+     <button id="print">Print</button>      
+     <script>   
+     for (var i = 0; i < 20; i++) {
+         var p = document.createElement("p");
+         p.textContent=i;
+         document.body.appendChild(p);
+     }
+       var buttons = document.getElementsByTagName("button"); 
+       for (var i = 0; i < buttons.length; i++) { 
+                  buttons[i].onclick = handleButtonPress; 
+       } 
+       function handleButtonPress(e) { 
+            if (e.target.id == "print") { 
+                window.print(); 
+             } else if (e.target.id == "scroll") { 
+                window.scrollTo(0, 300); 
+             } 
+        }
+       window.stop();
+      </script>
+  <p>This is never going to load because we use window.stop() the in previous script</p> 
+   </body> 
+</html> 

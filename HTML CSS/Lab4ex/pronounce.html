@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pronunciation Dictionary App</title>
+
+    <script>
+
+        function pronounce() {
+            let input_word = document.querySelector("#word").value.toLowerCase();
+            let file_input = document.getElementById('file-input');
+
+            let file = file_input.files[0];
+            let reader = new FileReader();
+            let phoneme = "";
+
+            reader.onload = function () {
+                let lines = reader.result.split("\n");
+                let entry;
+                let dict = {};
+                for (let line of lines) {
+                    [entry, ...phone] = line.split(" ");
+
+                    if (/^[A-Za-z\']*$/.test(entry)){
+                        if(entry.trim().toLowerCase() == input_word) {
+                            phoneme = phone.slice(1);
+                        } else {
+                            dict[entry] = phone.slice(1);
+                        }
+                    } 
+                }
+
+                let ans = "";
+                if (phoneme.length == 0) {
+                    ans = "Not Found"
+                    document.querySelector("#answer").innerHTML = ans;
+                } else {
+                    ans = "Pronunciation: " + phoneme.join(" ");
+                
+                    document.querySelector("#answer").innerHTML = ans;
+
+                    let identical = [];
+                    let replacePhon = []; 
+                    let addPhon = []; 
+                    let remPhon = [];
+                    
+                    let diff = 0;
+                    let ph = phoneme.length;
+                    for (let p in dict){
+
+                        let l = dict[p].length;
+                        diff = 0;
+                        if (l === ph){
+                            for (let syl in dict[p]){
+                                if (dict[p][syl] != phoneme[syl]){
+                                    diff++;
+                                }
+                                if (diff > 1){
+                                    break;
+                                }
+                            }
+                            if (diff === 1){
+                                replacePhon.push(p);
+                            } else if (diff === 0){
+                                identical.push(p);
+                            } else {
+                                continue;
+                            }
+
+                        } else if (l === ph + 1) {
+                            for (let syl in dict[p]){
+                                if (dict[p][syl] != phoneme[syl] && diff === 0){
+                                    diff++;
+                                    continue;
+                                }
+                                if (dict[p][syl] != phoneme[syl-1] && diff === 1){
+                                    diff++;
+                                    break;
+                                }
+
+                            }
+                            if (diff === 1){
+                                addPhon.push(p);
+                            } else {
+                                continue;
+                            }
+                        } else if (l === ph-1) {
+                            //console.log(p);
+                            for (let syl in dict[p]){
+
+                                if (dict[p][syl] != phoneme[syl] && diff === 0){
+                                    diff++;
+                                }
+                                //console.log(dict[p][syl],phoneme[syl], phoneme[(parseInt(syl)+1)], syl, diff);
+                                if (dict[p][syl] != phoneme[parseInt(syl)+1] && diff === 1){
+                                    diff++;
+                                    break;
+                                }
+
+                            }
+                            if (diff === 1){
+                                remPhon.push(p);
+                            } else {
+                                continue;
+                            }
+                        } else {
+                            continue;
+                        }
+                    }
+
+                    let ans1 = ans2 = ans3 = ans4 = "";
+                
+                    ans1 += "Identical: " + identical.join(" ");
+                    ans2 += "Replace phoneme: " + replacePhon.join(" ");
+                    ans3 += "Add phoneme: " + addPhon.join(" ");
+                    ans4 += "Remove phoneme: " + remPhon.join(" ");
+
+                    document.querySelector("#answer1").innerHTML = ans1;
+                    document.querySelector("#answer2").innerHTML = ans2;
+                    document.querySelector("#answer3").innerHTML = ans3;
+                    document.querySelector("#answer4").innerHTML = ans4
+
+                }
+
+            }
+            reader.readAsText(file);
+
+        }
+
+    </script>
+</head>
+
+<body>
+    <form>
+        <label>Enter a word: </label>
+        <input type="text" id="word"></text><br />
+        <button type="button" onclick="pronounce()">Process word</button>
+    </form>
+    <label>Load dictionary</label><input type="file" id="file-input">
+    <p id="answer"></p>
+    <p></p>
+    <p id="answer1"></p>
+    <p id="answer2"></p>
+    <p id="answer3"></p>
+    <p id="answer4"></p>
+
+</body>
+</html>

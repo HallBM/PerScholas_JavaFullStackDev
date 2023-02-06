@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en-US">
+ <head>
+    <title>Events</title>
+  </head>
+  <body>
+    <button onclick="changeText()">Click me</button>
+    <p>Try to change me.</p>
+   <script>
+// Function to modify the text content of the paragraph
+     var changeText = () => {
+     var p = document.querySelector('p');
+     p.textContent = "I changed because of an inline event handler.";
+}
+   </script>
+  </body>
+</html>
