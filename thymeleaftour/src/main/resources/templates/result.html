@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Result</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container my-3">
+    <div class="row">
+        <div class="col-md-10 mx-auto">
+<h2>Recent project</h2>
+<div class="my-3">
+    <p><strong>ID:</strong> <span th:text="${project.id}"></span></p>
+    <p><strong>Title:</strong> <span th:text="${project.title}"></span></p>
+    <p><strong>Type:</strong> <span th:text="${project.type}"></span></p>
+    <p><strong>Color:</strong> <span th:text="${project.color}"></span></p>
+    <p><strong>Description:</strong> <span th:text="${project.description}"></span></p>
+    <p><strong>Days:</strong> <span th:text="${project.days}"></span></p>
+    <p><strong>Price:</strong> <span th:text="${project.price}"></span></p>
+    <p><strong>Featured:</strong> <span th:text="${project.featured} ? 'Yes' : 'No'"></span></p>
+    <p><strong>Launch Date:</strong> <span th:text="${project.launchDate}"></span></p>
+ 
+ <h2>ALL PROJECTS</h2>   
+   <table class="table table-striped">
+ <thead>
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Type</th>
+        <th>Color</th>
+        <th>Description</th>
+        <th>Days</th>
+        <th>Price</th>
+        <th>Featured</th>
+        <th>Launch Date</th>
+    </tr>
+ </thead>
+    <tbody>
+
+     <tr th:each="proj : ${projectlist}">
+      <td th:text="${proj.id}"></td>
+      <td th:text="${proj.title}"></td>
+      <td th:text="${proj.type}"></td>
+      <td th:text="${proj.color}"></td>
+      <td th:text="${proj.description}"></td>
+      <td th:text="${proj.days}"></td>
+      <td th:text="${proj.price}"></td>
+      <td th:text="${proj.featured}"></td>
+      <td th:text="${proj.launchDate}"></td>
+     </tr>
+    </tbody>
+</table>
+    
+</div>
+<a th:href="@{/create-project}">Add new project</a><br/>
+<a th:href="@{/register}">New registration</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Result</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container my-3">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+<h2>Registration Successful</h2>
+<div class="my-3">
+    <p><strong>Name:</strong> <span th:text="${myregistration.fname}"></span> <span th:text="${myregistration.lname}"></span></p>
+    <p><strong>DOB:</strong> <span th:text="${myregistration.dob}"></span></p>
+    <p><strong>Phone:</strong> <span th:text="${myregistration.phoneno}"></span></p>
+    <p><strong>Company:</strong> <span th:text="${myregistration.company}"></span></p>
+    <p><strong>Job Title:</strong> <span th:text="${myregistration.jobtitle}"></span></p>
+
+</div>
+<a th:href="@{/create-project}">Add new project</a><br/>
+<a th:href="@{/register}">New registration</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
