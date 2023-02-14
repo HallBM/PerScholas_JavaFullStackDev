@@ -13,7 +13,10 @@ class Animal{
 	public void setAge(int age) {
 		this.age = age;
 	}
-
+	
+	public float divide(int a, int b) {
+		return (a/b);
+	}
 
 	protected String name;
     protected int age;
