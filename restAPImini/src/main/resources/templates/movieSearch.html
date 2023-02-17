@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Movie Search Form</title>
+</head>
+<body>
+
+<form th:action="@{/movieSearch}" th:object="${movietitle}" method="post">
+    <label>Movie Title:</label>
+    <input type="text" th:field="*{title}"><br>
+    <input type="submit" value="Submit">
+</form>
+
+<div>
+    <p><strong>Title:</strong> <span th:text="${movie.title}"></span></p>
+    <p><strong>Year:</strong> <span th:text="${movie.year}"></span></p>
+    <p><strong>Rated:</strong> <span th:text="${movie.rated}"></span></p>
+    <p><strong>Released:</strong> <span th:text="${movie.released}"></span></p>
+    <p><strong>Runtime:</strong> <span th:text="${movie.runtime}"></span></p>
+    <p><strong>Genre:</strong> <span th:text="${movie.genre}"></span></p>
+    <p><strong>Director:</strong> <span th:text="${movie.director}"></span></p>
+    <p><strong>Writer:</strong> <span th:text="${movie.writer}"></span></p>
+    <p><strong>Actors:</strong> <span th:text="${movie.actors}"></span></p>
+    <p><strong>Plot:</strong> <span th:text="${movie.plot}"></span></p>
+    <p><strong>Language:</strong> <span th:text="${movie.language}"></span></p>
+    <p><strong>Country:</strong> <span th:text="${movie.country}"></span></p>
+    <p><strong>Awards:</strong> <span th:text="${movie.awards}"></span></p>
+    <p><strong>Rotten Tomatoes Rating:</strong> <span th:text="${movie.rating}"></span></p>
+    <img th:src=${movie.poster}>
+</div>
+
+</body>
+</html>
