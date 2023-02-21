@@ -10,7 +10,7 @@
     <input type="text" th:field="*{title}"><br>
     <input type="submit" value="Submit">
 </form>
-
+<a th:href="@{/movieArchive}">Click here to see movie search history</a><br/>
 <div>
     <p><strong>Title:</strong> <span th:text="${movie.title}"></span></p>
     <p><strong>Year:</strong> <span th:text="${movie.year}"></span></p>
@@ -19,7 +19,7 @@
     <p><strong>Runtime:</strong> <span th:text="${movie.runtime}"></span></p>
     <p><strong>Genre:</strong> <span th:text="${movie.genre}"></span></p>
     <p><strong>Director:</strong> <span th:text="${movie.director}"></span></p>
-    <p><strong>Writer:</strong> <span th:text="${movie.writer}"></span></p>
+    <p><strong>Writer:</strong> <span th:text="${movie.writers}"></span></p>
     <p><strong>Actors:</strong> <span th:text="${movie.actors}"></span></p>
     <p><strong>Plot:</strong> <span th:text="${movie.plot}"></span></p>
     <p><strong>Language:</strong> <span th:text="${movie.language}"></span></p>
